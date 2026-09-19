@@ -60,6 +60,7 @@ const deleteContact = async (req, res) => {
         res.status(500).json(response.error || "Some error occured while deleting the contact.");
     }
 }
+
 module.exports = {
     getAll,
     getSingle,
