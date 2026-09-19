@@ -43,6 +43,7 @@ const updateContact = async (req, res) => {
         birthday: req.body.birthday
     };
     const response = await mongodb.getDatabase().db("project1").collection("contacts").replaceOne({_id: contactId}, contact);
+    console.log("UPDATE RESULT:", response);
     if (response.matchedCount === 0) {
         return res.status(404).json({ error: "Contact not found" });
     }
