@@ -17,6 +17,7 @@ app.use((req, res, next) => {
 });
 app.use('/', require("./routes"));
 
+
 mongodb.initDb((err) =>{
     if(err) {
         console.log(err);
