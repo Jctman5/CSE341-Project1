@@ -42,7 +42,7 @@ const updateContact = async (req, res) => {
         favoriteColor: req.body.favoriteColor,
         birthday: req.body.birthday
     };
-    const response = await mongodb.getDatabase().db().collection("contacts").replacetOne({_id: contactId}, contact);
+    const response = await mongodb.getDatabase().db().collection("contacts").replaceOne({_id: contactId}, contact);
     if (response.acknowledged){
         res.status(204).send();
     } 
