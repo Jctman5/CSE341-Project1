@@ -26,8 +26,8 @@ const createContact = async (req, res) => {
         birthday: req.body.birthday
     };
     const response = await mongodb.getDatabase().db().collection("contacts").insertOne(contact);
-    if (response.modifiedCount > 0){
-        res.status(204).send();
+    if (response.acknowledged){
+        res.status(201).json({ id: response.insertedId });
     } 
     else{
         res.status(500).json(response.error || "Some error occured creating the contact.");
